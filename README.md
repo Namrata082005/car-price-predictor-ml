@@ -93,16 +93,15 @@ Stop the server with Ctrl+C in the terminal.
 
 
 
-'''
+
 Project Structure:
-textcar-price-predictor/
+car-price-predictor/
 ├── app.py           # Main Flask app script
 ├── cp.pkl           # Pre-trained ML model
 ├── scaler.pkl       # Feature scaler
 ├── templates/       # Folder for HTML templates
 │   └── home.html    # UI template
 └── README.md        # This file
-'''
 
 
 
