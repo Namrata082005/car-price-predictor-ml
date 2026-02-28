@@ -9,6 +9,9 @@ The app features a clean, user-friendly interface where users can input details 
 
 
 
+
+
+
 Features Interactive Form: Select car brand from a dropdown, enter age and kms driven.
 
 Real-Time Predictions: Displays the predicted price in thousands (e.g., "Expected Price = 150.25 K").
