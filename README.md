@@ -6,11 +6,10 @@ Overview:
 
 This is a simple web application built with Flask that predicts the price of used cars based on their brand, age (in years), and kilometers driven. It uses a pre-trained machine learning model to estimate the expected resale price. The supported car brands are Mahindra, Maruti, and Tata. This project serves as a beginner-friendly demonstration of deploying an ML model as a web app.
 The app features a clean, user-friendly interface where users can input details and get instant predictions. It's my first ML project, showcasing end-to-end development from model training (assumed) to deployment.
-Features
 
 
-Interactive Form: Select car brand from a dropdown, enter age and kms driven.
 
+Features Interactive Form: Select car brand from a dropdown, enter age and kms driven.
 Real-Time Predictions: Displays the predicted price in thousands (e.g., "Expected Price = 150.25 K").
 Data Handling: Uses one-hot encoding for brands and scaling for numerical features.
 Error Prevention: Ensures predicted prices are non-negative.
@@ -70,9 +69,8 @@ Example Input: Brand = Mahindra, Age = 2.5 years, Kms = 15000.
 Expected: A prediction like "Expected Price = X.XX K".
 Stop the server with Ctrl+C in the terminal.
 
-
-Project Structure:
 '''
+Project Structure:
 textcar-price-predictor/
 ├── app.py           # Main Flask app script
 ├── cp.pkl           # Pre-trained ML model
