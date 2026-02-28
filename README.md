@@ -10,11 +10,18 @@ The app features a clean, user-friendly interface where users can input details 
 
 
 Features Interactive Form: Select car brand from a dropdown, enter age and kms driven.
+
 Real-Time Predictions: Displays the predicted price in thousands (e.g., "Expected Price = 150.25 K").
+
 Data Handling: Uses one-hot encoding for brands and scaling for numerical features.
+
 Error Prevention: Ensures predicted prices are non-negative.
+
 Responsive Design: Modern styling with Poppins font and subtle CSS for a professional look.
+
 Debug Mode: Runs in debug mode for easy development and testing.
+
+
 
 
 
@@ -25,6 +32,8 @@ Machine Learning: Scikit-learn (for the regression model and scaler, loaded via 
 Frontend: HTML5, CSS3 (with Google Fonts)
 Dependencies: Flask, pickle (built-in)
 Model Files: cp.pkl (pre-trained model), scaler.pkl (feature scaler)
+
+
 
 
 
@@ -39,10 +48,15 @@ Scales the input using the loaded scaler.
 6. The ML model is assumed to be a regressor trained on a dataset with features like age_years, kms_driven, and brand dummies.
 
 
+
+
+
 Installation and Setup
 Prerequisites
 1. Python 3.6+ installed
 2. Git (for cloning the repo)
+
+
 
 
 
@@ -58,9 +72,13 @@ cd car-price-predictor
   scaler.pkl: Pickled scaler.
 
 
+
 Run the Application:textpython app.py
 The app will start on http://127.0.0.1:5000 (or http://localhost:5000).
 Open this URL in your browser to use the predictor.
+
+
+
 
 
 Testing:
@@ -68,6 +86,9 @@ Testing:
 Example Input: Brand = Mahindra, Age = 2.5 years, Kms = 15000.
 Expected: A prediction like "Expected Price = X.XX K".
 Stop the server with Ctrl+C in the terminal.
+
+
+
 
 '''
 Project Structure:
@@ -81,6 +102,8 @@ textcar-price-predictor/
 '''
 
 
+
+
 Limitations:
 
 1. Supports only three car brands; predictions may not generalize to others.
@@ -88,6 +111,8 @@ Limitations:
 3. Assumes the model was trained on specific feature order—mismatches could lead to inaccurate predictions.
 4. Local-only deployment; not optimized for production (e.g., debug mode enabled).
 5. No data validation for realistic ranges (e.g., negative age/kms allowed but not ideal).
+
+
 
 
 Future Improvements:
@@ -98,6 +123,8 @@ Future Improvements:
 4. Integrate a database for logging predictions or user feedback.
 5. Enhance UI with JavaScript for real-time validation or charts.
 6. Retrain the model with a larger dataset for better accuracy.
+
+
 
 Author & Contact:
 
