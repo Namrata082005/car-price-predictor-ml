@@ -1,4 +1,5 @@
 Car Price Predictor
+
 <img width="1816" height="851" alt="image" src="https://github.com/user-attachments/assets/e4e3b00d-e10b-4c46-91c1-d31b61a95c72" />
 
 Overview:
@@ -6,6 +7,7 @@ Overview:
 This is a simple web application built with Flask that predicts the price of used cars based on their brand, age (in years), and kilometers driven. It uses a pre-trained machine learning model to estimate the expected resale price. The supported car brands are Mahindra, Maruti, and Tata. This project serves as a beginner-friendly demonstration of deploying an ML model as a web app.
 The app features a clean, user-friendly interface where users can input details and get instant predictions. It's my first ML project, showcasing end-to-end development from model training (assumed) to deployment.
 Features
+
 
 Interactive Form: Select car brand from a dropdown, enter age and kms driven.
 
@@ -16,6 +18,7 @@ Responsive Design: Modern styling with Poppins font and subtle CSS for a profess
 Debug Mode: Runs in debug mode for easy development and testing.
 
 
+
 Technologies Used:
 
 Backend: Python 3 with Flask (web framework)
@@ -23,6 +26,7 @@ Machine Learning: Scikit-learn (for the regression model and scaler, loaded via 
 Frontend: HTML5, CSS3 (with Google Fonts)
 Dependencies: Flask, pickle (built-in)
 Model Files: cp.pkl (pre-trained model), scaler.pkl (feature scaler)
+
 
 
 How It Works: 
@@ -35,10 +39,12 @@ Scales the input using the loaded scaler.
 5. Output: Renders the result on the same page using Jinja templating.
 6. The ML model is assumed to be a regressor trained on a dataset with features like age_years, kms_driven, and brand dummies.
 
+
 Installation and Setup
 Prerequisites
 1. Python 3.6+ installed
 2. Git (for cloning the repo)
+
 
 
 Steps:
@@ -52,9 +58,11 @@ cd car-price-predictor
   cp.pkl: Pickled ML model.
   scaler.pkl: Pickled scaler.
 
+
 Run the Application:textpython app.py
 The app will start on http://127.0.0.1:5000 (or http://localhost:5000).
 Open this URL in your browser to use the predictor.
+
 
 Testing:
 
@@ -64,7 +72,7 @@ Stop the server with Ctrl+C in the terminal.
 
 
 Project Structure:
-
+'''
 textcar-price-predictor/
 ├── app.py           # Main Flask app script
 ├── cp.pkl           # Pre-trained ML model
@@ -72,6 +80,7 @@ textcar-price-predictor/
 ├── templates/       # Folder for HTML templates
 │   └── home.html    # UI template
 └── README.md        # This file
+'''
 
 
 Limitations:
