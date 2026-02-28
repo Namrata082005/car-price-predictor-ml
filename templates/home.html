@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Predictor</title>
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif; /* Changed font to Poppins */
+            background-color: #f2f7ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #004aad;
+            margin-top: 30px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        input, select {
+            padding: 8px;
+            margin-top: 5px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #004aad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+        button:hover {
+            background-color: #006aff;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Car Price Predictor</h1>
+    <form method="POST">
+        <label for="car_choice">Select Car Brand:</label>
+        <select name="car_choice" id="car_choice" required>
+            <option value="1">Mahindra</option>
+            <option value="2">Maruti</option>
+            <option value="3">Tata</option>
+        </select>
+
+        <label for="yrs">Car Age (Years):</label>
+        <input type="number" step="0.1" name="yrs" id="yrs" required>
+
+        <label for="kms">Kms Driven:</label>
+        <input type="number" step="0.1" name="kms" id="kms" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if msg %}
+    <div class="result">
+        {{ msg }}
+    </div>
+    {% endif %}
+
+</body>
+</html>
