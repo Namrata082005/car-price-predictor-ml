@@ -107,7 +107,6 @@ text---
 <h2><a class="anchor" id="how-to-run-this-project"></a>How to Run This Project</h2>
 
 1. Clone the repository:
-```bash
 git clone https://github.com/yourusername/car-price-predictor.git
 
 Install dependencies:
@@ -123,18 +122,16 @@ Visit http://localhost:5000
 Enter details and predict!
 
 
+<h2><a class="anchor" id="final-recommendations"></a>Future Improvements</h2>
 
-Future Improvements
+1. Add more car brands and features (e.g., fuel type)
+2. Implement input validation and error messages
+3. Deploy to cloud (e.g., Heroku)
+4. Include training notebook for full reproducibility
+5. Enhance with JavaScript for dynamic UI
 
-Add more car brands and features (e.g., fuel type)
-Implement input validation and error messages
-Deploy to cloud (e.g., Heroku)
-Include training notebook for full reproducibility
-Enhance with JavaScript for dynamic UI
+<h2><a class="anchor" id="author--contact"></a>Author & Contact</h2>
 
-
-Author & Contact
-Namrata Pokharkar
-Aspiring ML Engineer
+Name: Namrata Pokharkar
 📧 Email: namratapokharkar20@gmail.com
 🔗 LinkedIn: www.linkedin.com/in/namrata-pokharkar-862a55288
