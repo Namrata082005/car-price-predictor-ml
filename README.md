@@ -1,137 +1,139 @@
-Car Price Predictor
+# 🧾 Car Price Predictor – ML Deployment with Flask
 
-<img width="1816" height="851" alt="image" src="https://github.com/user-attachments/assets/e4e3b00d-e10b-4c46-91c1-d31b61a95c72" />
+_Predicting used car prices based on brand, age, and kilometers driven using a pre-trained ML model deployed as a web app._
 
-Overview:
+---
 
-This is a simple web application built with Flask that predicts the price of used cars based on their brand, age (in years), and kilometers driven. It uses a pre-trained machine learning model to estimate the expected resale price. The supported car brands are Mahindra, Maruti, and Tata. This project serves as a beginner-friendly demonstration of deploying an ML model as a web app.
-The app features a clean, user-friendly interface where users can input details and get instant predictions. It's my first ML project, showcasing end-to-end development from model training (assumed) to deployment.
+## 📌 Table of Contents
+- <a href="#overview">Overview</a>
+- <a href="#business-problem">Project Goal</a>
+- <a href="#dataset">Dataset</a>
+- <a href="#tools--technologies">Tools & Technologies</a>
+- <a href="#project-structure">Project Structure</a>
+- <a href="#data-cleaning--preparation">Data Preparation</a>
+- <a href="#exploratory-data-analysis-eda">Model Training & Analysis</a>
+- <a href="#research-questions--key-findings">Key Features & Insights</a>
+- <a href="#dashboard">Web Interface</a>
+- <a href="#how-to-run-this-project">How to Run This Project</a>
+- <a href="#final-recommendations">Future Improvements</a>
+- <a href="#author--contact">Author & Contact</a>
 
+---
+<h2><a class="anchor" id="overview"></a>Overview</h2>
 
+This project is a simple web application that predicts the resale price of used cars using a pre-trained machine learning model. Users can input the car brand (Mahindra, Maruti, or Tata), age in years, and kilometers driven to get an estimated price. The app is built with Flask for the backend and HTML/CSS for the frontend, serving as a beginner's demonstration of ML model deployment.
 
+---
+<h2><a class="anchor" id="business-problem"></a>Project Goal</h2>
 
+Estimating used car prices accurately helps buyers, sellers, and dealerships make informed decisions. This project aims to:
+- Deploy a basic ML model as an interactive web app
+- Handle user inputs and provide real-time predictions
+- Demonstrate end-to-end ML workflow from model loading to user interface
+- Focus on simplicity for educational purposes as a first ML project
 
+---
+<h2><a class="anchor" id="dataset"></a>Dataset</h2>
 
-Features Interactive Form: Select car brand from a dropdown, enter age and kms driven.
+- Assumed training data: CSV or similar with columns like `age_years`, `kms_driven`, and car brands (one-hot encoded as Mahindra, Maruti, Tata)
+- Pre-trained model and scaler saved as pickle files (`cp.pkl` and `scaler.pkl`)
+- No raw data included; model assumes regression on historical car sales data
 
-Real-Time Predictions: Displays the predicted price in thousands (e.g., "Expected Price = 150.25 K").
+---
 
-Data Handling: Uses one-hot encoding for brands and scaling for numerical features.
+<h2><a class="anchor" id="tools--technologies"></a>Tools & Technologies</h2>
 
-Error Prevention: Ensures predicted prices are non-negative.
+- Python (Flask for web framework, Scikit-learn for ML model)
+- HTML/CSS (with Google Fonts for styling)
+- Pickle (for model serialization)
+- GitHub
 
-Responsive Design: Modern styling with Poppins font and subtle CSS for a professional look.
-
-Debug Mode: Runs in debug mode for easy development and testing.
-
-
-
-
-
-Technologies Used:
-
-Backend: Python 3 with Flask (web framework)
-Machine Learning: Scikit-learn (for the regression model and scaler, loaded via pickle)
-Frontend: HTML5, CSS3 (with Google Fonts)
-Dependencies: Flask, pickle (built-in)
-Model Files: cp.pkl (pre-trained model), scaler.pkl (feature scaler)
-
-
-
-
-
-How It Works: 
-
-1. Model Loading: On startup, the app loads the pre-trained model and scaler from pickle files.
-2. User Input: Via a POST form, users provide car brand (as an integer: 1=Mahindra, 2=Maruti, 3=Tata), age in years, and kms driven.
-3. Data Preparation: Creates a feature array with age, kms, and one-hot encoded brand dummies (order: Mahindra, Maruti, Tata).
-Scales the input using the loaded scaler.
-4. Prediction: The model predicts the price, which is rounded and displayed (floored at 0 if negative).
-5. Output: Renders the result on the same page using Jinja templating.
-6. The ML model is assumed to be a regressor trained on a dataset with features like age_years, kms_driven, and brand dummies.
-
-
-
-
-
-Installation and Setup
-Prerequisites
-1. Python 3.6+ installed
-2. Git (for cloning the repo)
-
-
-
-
-
-Steps:
-
-1. Clone the Repository:textgit clone https://github.com/yourusername/car-price-predictor.git
-cd car-price-predictor
-2. Install Dependencies:textpip install flask
-3. Ensure Files are Present:
-  app.py: Main Flask application.
-  templates/home.html: HTML template for the UI.
-  cp.pkl: Pickled ML model.
-  scaler.pkl: Pickled scaler.
-
-
-
-Run the Application:textpython app.py
-The app will start on http://127.0.0.1:5000 (or http://localhost:5000).
-Open this URL in your browser to use the predictor.
-
-
-
-
-
-Testing:
-
-Example Input: Brand = Mahindra, Age = 2.5 years, Kms = 15000.
-Expected: A prediction like "Expected Price = X.XX K".
-Stop the server with Ctrl+C in the terminal.
-
-
-
-
-
-Project Structure:
+---
+<h2><a class="anchor" id="project-structure"></a>Project Structure</h2>
 car-price-predictor/
-├── app.py           # Main Flask app script
-├── cp.pkl           # Pre-trained ML model
-├── scaler.pkl       # Feature scaler
-├── templates/       # Folder for HTML templates
-│   └── home.html    # UI template
-└── README.md        # This file
+│
+├── README.md
+├── .gitignore
+├── app.py              # Main Flask application script
+├── cp.pkl              # Pre-trained ML model
+├── scaler.pkl          # Feature scaler
+│
+├── templates/          # Folder for HTML templates
+│   └── home.html       # UI template for the web form
+text---
+<h2><a class="anchor" id="data-cleaning--preparation"></a>Data Preparation</h2>
+
+- User inputs: Brand (as integer), age (float), kms driven (float)
+- One-hot encoding for brands to match training order: ['age_years', 'kms_driven', 'car_name_Mahindra', 'car_name_Maruti', 'car_name_Tata']
+- Scaling inputs using loaded scaler
+- Prediction ensures non-negative prices (floored at 0)
+
+---
+<h2><a class="anchor" id="exploratory-data-analysis-eda"></a>Model Training & Analysis</h2>
+
+**Assumptions from Training:**
+- Model: Regression (e.g., Linear Regression or similar from Scikit-learn)
+- Features: Age, kms, and brand dummies
+- No explicit EDA in this deployment; assume prior analysis showed:
+  - Negative correlation between age/kms and price
+  - Brand-specific pricing variations
+
+**Potential Issues:**
+- Negative predictions handled by max(0, price)
+- Outliers in inputs not validated (e.g., negative age)
+
+---
+<h2><a class="anchor" id="research-questions--key-findings"></a>Key Features & Insights</h2>
+
+1. **Supported Brands**: Limited to Mahindra, Maruti, Tata for simplicity
+2. **Prediction Logic**: Real-time scaling and inference
+3. **User Experience**: Simple form with instant results in thousands (e.g., "Expected Price = 150.25 K")
+4. **Insights**: Older cars or high kms reduce price; brands impact baseline value
+5. **Limitations**: No advanced features like multiple models or error handling
+
+---
+<h2><a class="anchor" id="dashboard"></a>Web Interface</h2>
+
+- Flask-based web app shows:
+  - Dropdown for brand selection
+  - Inputs for age and kms
+  - Predicted price display
+  - Modern styling with Poppins font
+
+![Car Price Predictor Interface](https://via.placeholder.com/800x400?text=Car+Price+Predictor+Demo)
+
+---
+<h2><a class="anchor" id="how-to-run-this-project"></a>How to Run This Project</h2>
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/car-price-predictor.git
+
+Install dependencies:
+
+Bashpip install flask
+
+Run the app:
+
+Bashpython app.py
+
+Open in browser:
+Visit http://localhost:5000
+Enter details and predict!
 
 
 
+Future Improvements
 
-Limitations:
-
-1. Supports only three car brands; predictions may not generalize to others.
-2. No robust error handling for invalid inputs (e.g., non-numeric values crash the app).
-3. Assumes the model was trained on specific feature order—mismatches could lead to inaccurate predictions.
-4. Local-only deployment; not optimized for production (e.g., debug mode enabled).
-5. No data validation for realistic ranges (e.g., negative age/kms allowed but not ideal).
-
+Add more car brands and features (e.g., fuel type)
+Implement input validation and error messages
+Deploy to cloud (e.g., Heroku)
+Include training notebook for full reproducibility
+Enhance with JavaScript for dynamic UI
 
 
-
-Future Improvements:
-
-1. Add more brands and features (e.g., fuel type, transmission).
-2. Implement input validation and error messages.
-3. Deploy to a cloud platform like Heroku or Vercel for public access.
-4. Integrate a database for logging predictions or user feedback.
-5. Enhance UI with JavaScript for real-time validation or charts.
-6. Retrain the model with a larger dataset for better accuracy.
-
-
-
-Author & Contact:
-
-Name: Namrata Pokharkar
-
-Contact: 9356455954
-
-email: namratapokharkar20@gmail.com
+Author & Contact
+Namrata Pokharkar
+Aspiring ML Engineer
+📧 Email: namratapokharkar20@gmail.com
+🔗 LinkedIn: www.linkedin.com/in/namrata-pokharkar-862a55288
