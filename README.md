@@ -100,8 +100,6 @@ text---
   - Predicted price display
   - Modern styling with Poppins font
 
-![Car Price Predictor Interface](<img width="1874" height="868" alt="image" src="https://github.com/user-attachments/assets/bb6846c4-cb89-41b9-a440-87af4488b61f" />
-)
 
 ---
 <h2><a class="anchor" id="how-to-run-this-project"></a>How to Run This Project</h2>
